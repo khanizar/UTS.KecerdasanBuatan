@@ -24,7 +24,6 @@ diagnosa :-
     ;   writeln('Tidak dapat mendeteksi jenis hama berdasarkan gejala yang diberikan.')
     ).
 
-% Aturan sama seperti sebelumnya
 hama(kutu_daun) :-
     gejala(daun_menguning),
     gejala(bercak_hitam).
