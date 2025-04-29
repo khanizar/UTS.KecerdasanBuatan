@@ -1,0 +1,36 @@
+:- dynamic gejala/1.
+
+tanya(Gejala) :-
+    format('Apakah tanaman mengalami ~w? (y/n) : ', [Gejala]),
+    read(Jawaban),
+    ( Jawaban == y ->
+        assertz(gejala(Gejala))
+    ; true ).
+
+diagnosa :-
+    retractall(gejala(_)), % reset data
+    tanya(daun_menguning),
+    tanya(bercak_hitam),
+    tanya(daun_berlubang),
+    tanya(tanaman_layu),
+    (   hama(Hama)
+    ->  format('Jenis hama yang terdeteksi: ~w~n', [Hama])
+    ;   writeln('Tidak dapat mendeteksi jenis hama berdasarkan gejala yang diberikan.')
+    ).
+
+% Aturan sama seperti sebelumnya
+hama(kutu_daun) :-
+    gejala(daun_menguning),
+    gejala(bercak_hitam).
+
+hama(ulat) :-
+    gejala(daun_berlubang),
+    gejala(daun_menguning).
+
+hama(jamur) :-
+    gejala(bercak_hitam),
+    gejala(tanaman_layu).
+
+hama(kekeringan) :-
+    gejala(tanaman_layu),
+    \+ gejala(daun_berlubang).

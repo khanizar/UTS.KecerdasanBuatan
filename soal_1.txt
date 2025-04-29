@@ -1,0 +1,39 @@
+2. Logika Proposisional & Pseudocode
+Logika Proposisional:
+Misalkan:
+A = Daun menguning
+B = Bercak hitam
+C = Daun berlubang
+D = Tanaman layu
+
+Maka aturan bisa dinyatakan:
+(A ∧ B) → Hama kutu daun
+(C ∧ A) → Hama ulat
+(B ∧ D) → Hama jamur
+(D ∧ ¬C) → Hama kekeringan
+
+Pseudocode:
+INPUT: daftar gejala yang terdeteksi
+OUTPUT: jenis hama
+
+ALGORITHM:
+1. Jika daun menguning dan ada bercak hitam, maka hama = kutu daun
+2. Jika daun berlubang dan daun menguning, maka hama = ulat
+3. Jika bercak hitam dan tanaman layu, maka hama = jamur
+4. Jika tanaman layu dan tidak ada daun berlubang, maka hama = kekeringan
+5. Jika tidak cocok semua, maka hama tidak terdeteksi
+
+
+3. Penjelasan Alur Inferensi (Input → Output)
+Alur Inferensi:
+
+Input: Petani memasukkan gejala yang terlihat (misal: daun menguning dan bercak hitam).
+
+Proses: Sistem akan mencocokkan kombinasi gejala terhadap aturan-aturan yang tersedia.
+
+Output: Sistem mengeluarkan hasil identifikasi jenis hama berdasarkan aturan yang cocok.
+
+Contoh:
+Input: daun_menguning, bercak_hitam
+Proses: (A ∧ B) → Kutu Daun
+Output: Hama terdeteksi: Kutu Daun
